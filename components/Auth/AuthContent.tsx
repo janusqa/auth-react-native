@@ -2,16 +2,19 @@ import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
-import { Props as SignupScreenProps } from '../../screens/SignupScreen';
+import type { Props as SignupScreenProps } from '../../screens/SignupScreen';
 
 import FlatButton from '../ui/FlatButton';
 import AuthForm from './AuthForm';
 import { Colors } from '../../constants/styles';
-import { AuthInfo } from './AuthForm';
+import type { AuthInfo } from './AuthForm';
 
 type Props = {
     isLogin: boolean;
-    onAuthenticate: (credentials: { email: string; password: string }) => void;
+    onAuthenticate: (credentials: {
+        email: string;
+        password: string;
+    }) => Promise<void>;
 };
 
 const AuthContent = ({ isLogin, onAuthenticate }: Props) => {
@@ -33,7 +36,8 @@ const AuthContent = ({ isLogin, onAuthenticate }: Props) => {
     };
 
     const submitHandler = (credentials: AuthInfo) => {
-        let { email, confirmEmail, password, confirmPassword } = credentials;
+        let { email, password } = credentials;
+        const { confirmEmail, confirmPassword } = credentials;
 
         email = email.trim();
         password = password.trim();
@@ -60,7 +64,7 @@ const AuthContent = ({ isLogin, onAuthenticate }: Props) => {
             });
             return;
         }
-        onAuthenticate({ email, password });
+        void onAuthenticate({ email, password });
     };
 
     return (

@@ -1,9 +1,9 @@
-import { configureStore, PreloadedState } from '@reduxjs/toolkit';
+import { configureStore, type PreloadedState } from '@reduxjs/toolkit';
 import reducer from './reducer';
 
 export type TRootState = ReturnType<typeof reducer>;
 
-const customMiddlewares = [];
+const customMiddlewares = [] as const;
 const initilizeStore = (preloadedState?: PreloadedState<TRootState>) =>
     configureStore({
         reducer: reducer,

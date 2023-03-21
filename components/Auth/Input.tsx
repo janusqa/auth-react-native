@@ -3,7 +3,7 @@ import {
     Text,
     TextInput,
     StyleSheet,
-    KeyboardTypeOptions,
+    type KeyboardTypeOptions,
 } from 'react-native';
 
 import { Colors } from '../../constants/styles';

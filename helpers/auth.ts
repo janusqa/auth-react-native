@@ -28,13 +28,14 @@ export const authenticate = async (
         }),
     });
 
-    const data = await response.json();
-
     if (!response.ok) {
         throw new Error('Authentication failed! Please try again later');
     }
 
-    return mode === 'signUp'
-        ? (data as SignUpResponse)
-        : (data as SignInResponse);
+    const data =
+        mode === 'signUp'
+            ? ((await response.json()) as SignUpResponse)
+            : ((await response.json()) as SignInResponse);
+
+    return data;
 };

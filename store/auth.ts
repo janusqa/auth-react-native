@@ -1,9 +1,9 @@
-import { TRootState } from './configureStore';
+import { type TRootState } from './configureStore';
 import {
     createSlice,
     createSelector,
-    PayloadAction,
-    CaseReducer,
+    type PayloadAction,
+    type CaseReducer,
 } from '@reduxjs/toolkit';
 
 type TSliceState = {
@@ -44,13 +44,13 @@ export const setToken = (token: { token: string | null }) => tokenSet(token);
 // selectors
 
 //*** paramatized queries */
-type ParameterSelector<T> = (_: TRootState, params: T) => T[keyof T];
+// type ParameterSelector<T> = (_: TRootState, params: T) => T[keyof T];
 
-const createParameterSelector = <T>(
-    selector: (params: T) => T[keyof T]
-): ParameterSelector<T> => {
-    return (_, params) => selector(params);
-};
+// const createParameterSelector = <T>(
+//     selector: (params: T) => T[keyof T]
+// ): ParameterSelector<T> => {
+//     return (_, params) => selector(params);
+// };
 
 // can query slice data on params
 // const getExpensIdParam: ParameterSelector<{ id: string }> =

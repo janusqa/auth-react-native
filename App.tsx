@@ -60,7 +60,7 @@ const AuthenticatedStack = () => {
                     headerRight: ({ tintColor }) => (
                         <IconButton
                             icon="exit"
-                            color={tintColor!}
+                            color={tintColor ?? '#fff'}
                             size={24}
                             onPress={() => dispatch(setToken({ token: null }))}
                         />

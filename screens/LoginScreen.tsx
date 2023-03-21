@@ -8,7 +8,7 @@ import LoadingOverlay from '../components/ui/LoadingOverlay';
 import { useAppDispatch } from '../store/hooks/useStore';
 import { setToken } from '../store/auth';
 
-import { AuthNativeStackScreenProps } from '../types/navigation';
+import type { AuthNativeStackScreenProps } from '../types/navigation';
 
 export type Props = AuthNativeStackScreenProps<'Login'>;
 
