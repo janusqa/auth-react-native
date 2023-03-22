@@ -6,20 +6,19 @@
 // import type { DrawerScreenProps } from '@react-navigation/drawer';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export type AuthNativeStackParamList = {
+type AuthNativeStackParamList = {
     Login: undefined;
     Signup: undefined;
 };
 
-export type AuthNativeStackScreenProps<
-    T extends keyof AuthNativeStackParamList
-> = NativeStackScreenProps<AuthNativeStackParamList, T>;
+type AuthNativeStackScreenProps<T extends keyof AuthNativeStackParamList> =
+    NativeStackScreenProps<AuthNativeStackParamList, T>;
 
-export type AuthenticatedNativeStackParamList = {
+type AuthenticatedNativeStackParamList = {
     Welcome: undefined;
 };
 
-export type AuthenticatedNativeStackScreenProps<
+type AuthenticatedNativeStackScreenProps<
     T extends keyof AuthenticatedNativeStackParamList
 > = NativeStackScreenProps<AuthenticatedNativeStackParamList, T>;
 

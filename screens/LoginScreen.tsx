@@ -7,8 +7,9 @@ import LoadingOverlay from '../components/ui/LoadingOverlay';
 
 import { useAppDispatch } from '../store/hooks/useStore';
 import { setToken } from '../store/auth';
+import { setValue } from '../helpers/secureStorage';
 
-import type { AuthNativeStackScreenProps } from '../types/navigation';
+import type { AuthNativeStackScreenProps } from '../navigation';
 
 export type Props = AuthNativeStackScreenProps<'Login'>;
 
@@ -32,6 +33,7 @@ const LoginScreen = () => {
                 password
             );
             dispatch(setToken({ token: idToken }));
+            void setValue('token', JSON.stringify(idToken));
         } catch (error) {
             const message =
                 error instanceof Error ? error.message : 'Something went wrong';

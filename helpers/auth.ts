@@ -1,4 +1,4 @@
-import { authUrl, webApiKey } from '../constants/env';
+import { AUTHURL, WEBAPIKEY } from '@env';
 
 type SignUpResponse = {
     email: string;
@@ -18,7 +18,7 @@ export const authenticate = async (
     email: string,
     password: string
 ) => {
-    const response = await fetch(`${authUrl}:${mode}?key=${webApiKey}`, {
+    const response = await fetch(`${AUTHURL}:${mode}?key=${WEBAPIKEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

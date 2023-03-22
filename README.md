@@ -3,6 +3,24 @@ $ npx create-expo-app .
 $ touch tsconfig.json
 $ npx expo start
 
+```tsconfig.json
+{
+    "compilerOptions": {
+        "strict": true
+    },
+    "exclude": ["node_modules"],
+    "include": [
+        ".eslintrc.cjs",
+        "babel.config.js",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.cjs",
+        "**/*.mjs"
+    ],
+    "extends": "expo/tsconfig.base"
+}
+```
+
 # Linting
 1.
 $ npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @types/eslint @types/react @types/react-native eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native
@@ -42,6 +60,14 @@ const config = {
                 fixStyle: 'inline-type-imports',
             },
         ],
+        '@typescript-eslint/no-misused-promises': [
+            'error',
+            {
+                checksVoidReturn: {
+                    attributes: false,
+                },
+            },
+        ],
     },
 };
 
@@ -57,7 +83,7 @@ $ touch .eslingignore
 4.
 add ```"lint": "eslint . --ext .js,.jsx,.ts,.tsx"``` to "scripts" key of package.json
 
-5. add to tsconfig if not already there
+5. add to tsconfig.json if not already there
 ```
    {
     "compilerOptions": {
@@ -110,3 +136,11 @@ $ npm i zod zod-validation-error
 import {z} from 'zod'
 import {fromZodError} from 'zod-validation-error'
 ```
+
+# local storage
+$ npx expo install expo-secure-store // secure storage
+$ npx expo install @react-native-async-storage/async-storage // unsecure storage 
+
+# Load and intial loading screen untill resources are loaded
+$ npx expo install expo-splash-screen
+import * as SplashScreen from 'expo-splash-screen';

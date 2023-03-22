@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAppSelector } from '../store/hooks/useStore';
 import { getToken } from '../store/auth';
 
-import type { AuthenticatedNativeStackScreenProps } from '../types/navigation';
+import type { AuthenticatedNativeStackScreenProps } from '../navigation';
 
 export type Props = AuthenticatedNativeStackScreenProps<'Welcome'>;
 
@@ -25,11 +25,10 @@ const WelcomeScreen = () => {
 
                     const data = (await response.json()) as string;
 
-                    if (!response.ok) {
-                        throw new Error('Unable to fetch data');
+                    if (response.ok) {
+                        // throw new Error('Unable to fetch data');
+                        setMessage(data);
                     }
-
-                    setMessage(data);
                 }
             };
             void getMessage();

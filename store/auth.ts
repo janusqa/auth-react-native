@@ -27,7 +27,7 @@ const tokenSetdReducer: CaseReducer<
 
 const slice = createSlice({
     name: 'auth',
-    initialState: getInitialState(),
+    initialState: getInitialState,
     reducers: {
         tokenSet: tokenSetdReducer,
     },

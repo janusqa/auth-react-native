@@ -3,6 +3,13 @@
         "strict": true
     },
     "exclude": ["node_modules"],
-    "include": [".eslintrc.cjs", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
+    "include": [
+        ".eslintrc.cjs",
+        "babel.config.js",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.cjs",
+        "**/*.mjs"
+    ],
     "extends": "expo/tsconfig.base"
 }
